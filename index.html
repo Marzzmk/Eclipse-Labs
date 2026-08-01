@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Eclipse Labs</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<button>Click</button>
+
 <body>
-    <div class="Encabezado"><h1>Bienvenido a Eclipse Studios</h1></div>
-    <div class="Contenido"> <p>Hola</p></div>
+    <header class="encabezado">
+         <h1>Bienvenido a Eclipse Labs</h1> 
+         <nav>
+            <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Sobre Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#catalogo">Catálogo</a>
+         </nav>
+    </header>
+
+    <main class="contenido-principal"> 
+        <!--Mensaje principal-->
+        <section class="hero" id="inicio">
+         <h2>Innovación que se juega</h2>
+         <p></p>
+        </section>
+        <!--Sobre nosotros-->
+         <section class="sobre-nosotros" id="nosotros">
+         <h2>¿Quienes somos?</h2>
+         <p>
+            En Eclipse Labs transformamos ideas en experiencias divertidas. 
+            Somos un estudio de desarrollo de videojuegos enfocado en crear títulos innovadores, divertidos y accesibles para todo tipo de jugadores.
+            Nuestra plataforma reúne un catálogo de videojuegos, herramientas para la comunidad, un sistema de contacto y un asistente de inteligencia artificial diseñado para ayudar a los usuarios y mejorar su experiencia dentro de nuestros proyectos.
+            Creemos que la creatividad, la tecnología y la innovación son la base para construir el entretenimiento del futuro.     
+         </p>
+        </section>
+        <!--Servicios-->
+         <section class="servicios" id="servicios">
+         <h2>Nuestros servicios</h2>
+
+         <div class="servicio">
+            <h3>Desarrollo de videojuegos.</h3>
+            <p>Creamos videojuegos innovadores con mecánicas atractivas, diseños originales y una experiencia de juego de calidad, combinando creatividad y tecnología para ofrecer entretenimiento único.
+            </p>
+         </div>
+
+            <div class="servicio">
+            <h3>Publicacion y gestión de videojuegos.</h3>
+            <p>Publicamos, administramos y mantenemos nuestros videojuegos, asegurando actualizaciones constantes, un rendimiento óptimo y una experiencia estable para todos los jugadores.
+            </p>
+        </div>
+
+            <div class="servicio">
+            <h3>Noticias y novedades sobre nuestros proyectos.</h3>
+            <p>Mantente al día con las últimas actualizaciones, anuncios, eventos y avances de nuestros videojuegos, además de conocer las próximas funciones y proyectos de Eclipse Labs.
+            </p>
+         </div>
+
+        </section>
+        <section class="catalogo" id="catalogo">
+            <h2>Catalogo</h2>
+            <p></p>
+        </section>
+    </main>
+    <footer class="pie-de-pagina">
+        <!--Placeholder-->
+    </footer>
 </body>
 </html>
