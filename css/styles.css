@@ -7,10 +7,12 @@
   --neon-naranja: #ff9f1c;
   --neon-morado: #b829ff;
   --neon-amarillo: #fff01f;
+  --neon-rosa2: #ff00ae;
+  --neon-rosa3: #fe9ade;
   --texto: #ffffff;
 }
 body {
-  margin: 50px;
+  margin: 0px;
     background-image:
     linear-gradient(rgba(5,1,15,0.65), rgba(5,1,15,0.65)),
      url('../img/background-4.jpg.png');
@@ -34,6 +36,19 @@ h1, h2, h3 {
   margin-top: 100px;
 }
 
+.portada{
+-webkit-mask-image: linear-gradient(to bottom,black 70%, transparent 100%);
+mask-image: linear-gradient(to bottom black 70%, transparent 100%);
+background-image: url('../img/BackgroundPortada.png');
+background-size: cover;
+background-position: center;
+min-height: 70vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+position: relative;
+}
+
 .hero h2 {
   text-align: center;
   color: var(--neon-verde);
@@ -46,26 +61,35 @@ h1, h2, h3 {
   color: var(--texto);
   text-shadow: 0 0 20px var(--neon-verde);
   font-size: 20px;
+  font-family: 'Press Start 2P';
   
 }
 nav {
   text-align: center;
-  background-color: var(--azul-base);
+  background-color: transparent;
+  transition: background-color 0.3s ease;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   font-size: 25px;
   padding: 10px 0;
+  
+}
+nav.scrolled {
+  background-color: var(--azul-base)
 }
 nav a {
-    color: var(--neon-rosa);
+    color: var(--neon-rosa2);
     text-decoration: none;
     font-family: 'Press Start 2P';
-    text-shadow: 0 0 20px var(--neon-morado);
+    text-shadow: 0 0 20px var(--neon-rosa3);
     margin: 0 60px;
   }
   nav a:hover {
     text-shadow: 0 0 20px var(--texto);
     -webkit-text-stroke: 0.8px var(--texto);
+  }
+  .contenido{
+    padding: 0 75px;
   }
