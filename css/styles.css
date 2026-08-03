@@ -11,6 +11,11 @@
   --neon-rosa3: #fe9ade;
   --texto: #ffffff;
 }
+
+a:visited {
+  color: inherit;
+}
+
 body {
   margin: 0px;
     background-image:
@@ -38,7 +43,7 @@ h1, h2, h3 {
 
 .portada{
 -webkit-mask-image: linear-gradient(to bottom,black 70%, transparent 100%);
-mask-image: linear-gradient(to bottom black 70%, transparent 100%);
+mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 background-image: url('../img/BackgroundPortada.png');
 background-size: cover;
 background-position: center;
@@ -74,6 +79,7 @@ nav {
   left: 0;
   font-size: 25px;
   padding: 10px 0;
+  z-index: 1000;
   
 }
 nav.scrolled {
@@ -93,3 +99,59 @@ nav a {
   .contenido{
     padding: 0 75px;
   }
+.tarjeta-juego {
+ text-align: center;
+ overflow: hidden;
+ position: relative;
+ width: fit-content;
+ margin: 0 auto;
+ border-radius: 15px;
+}
+.juego-prueba h1 {
+  color: var(--texto);
+  text-shadow:0 0 20px var(--neon-cyan);
+  -webkit-text-stroke: 0.2px var(--texto);
+}
+
+  #imagen-arcadia  {
+    height: auto;
+    width: 200px;
+}
+#tarjeta {
+  text-align: center;
+}
+
+.tarjeta-juego img {
+  transition:transform 0.4s ease;
+}
+.tarjeta-juego:hover img {
+  transform: scale(1.1);
+}
+
+.tarjeta-juego::after  {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+.nombre-juego {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: var(--texto);
+  font-family: 'Press Start 2P';
+  text-shadow: 0 0 10px var(--neon-cyan);
+  z-index: 2;
+}
+.tarjeta-juego:hover .nombre-juego {
+  opacity: 1;
+}
