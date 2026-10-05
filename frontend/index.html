@@ -1,95 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eclipse Labs</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav>
-            <a href="#inicio">Inicio</a>
-                <a href="#nosotros">Sobre nosotros</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#catalogo">Catálogo</a>
-                <script src="js/script.js"></script>
-         </nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#catalogo">Catálogo</a>
+    </nav>
     <div class="portada" id="inicio">
-    <header class="encabezado">
-         <h1>Eclipse Labs</h1> 
-    </header>
+        <header class="encabezado">
+            <h1>Eclipse Labs</h1>
+        </header>
     </div>
-    <main class="contenido-principal"> 
+    <main class="contenido-principal">
         <!--Mensaje principal-->
-        <section class="hero" >
-         <h2>Innovación que se juega</h2>
-         <p>Estudio de desarrollo de videojuegos para todo tipo de jugadores.</p>
+        <section class="hero">
+            <h2>Innovación que se juega</h2>
+            <p>Estudio de desarrollo de videojuegos para todo tipo de jugadores.</p>
         </section>
 
-        <div class="juego-prueba">
-            <section id="tarjeta">
-                <h1>Prueba aqui</h1>
-                <div class="tarjeta-juego">
-                <a href="catalogo.html" id="logo">
-                    <img src="img/arkadia.png" alt="Logo arcadia" id="imagen-arcadia">
-                    <p class="nombre-juego">Arcadia</p>
-                </a>
+        <!--Estadisticas-->
+        <section class="estadisticas animado">
+            <div class="estadistica">
+                <h3 class="numero" data-meta="12">0</h3>
+                <p>Videojuegos creados</p>
             </div>
-            </section>
-        </div>
+            <div class="estadistica">
+                <h3 class="numero" data-meta="500">0</h3>
+                <p>Jugadores Activos</p>
+            </div>
+            <div class="estadistica">
+                <h3 class="numero" data-meta="120">0</h3>
+                <p>Visitas al juego</p>
+            </div>
+        </section>
 
         <!--Sobre nosotros-->
         <div class="contenido">
-         <section class="sobre-nosotros" id="nosotros">
-         <h2>¿Quienes somos?</h2>
-         <p>
-            En Eclipse Labs transformamos ideas en experiencias divertidas. 
-            Somos un estudio de desarrollo de videojuegos enfocado en crear títulos innovadores, divertidos y accesibles para todo tipo de jugadores.
-            Nuestra plataforma reúne un catálogo de videojuegos, herramientas para la comunidad, un sistema de contacto y un asistente de inteligencia artificial diseñado para ayudar a los usuarios y mejorar su experiencia dentro de nuestros proyectos.
-            Creemos que la creatividad, la tecnología y la innovación son la base para construir el entretenimiento del futuro.     
-         </p>
-        </section>
-        <!--Servicios-->
-         <section class="servicios" id="servicios">
-         <h2>Nuestros servicios</h2>
+            <section class="sobre-nosotros animado" id="nosotros">
+                <h2>¿Quienes somos?</h2>
+                <p>
+                    En Eclipse Labs transformamos ideas en experiencias divertidas.
+                    Somos un estudio de desarrollo de videojuegos enfocado en crear títulos innovadores, divertidos y
+                    accesibles para todo tipo de jugadores.
+                    Nuestra plataforma reúne un catálogo de videojuegos, herramientas para la comunidad, un sistema de
+                    contacto y un asistente de inteligencia artificial diseñado para ayudar a los usuarios y mejorar su
+                    experiencia dentro de nuestros proyectos.
+                    Creemos que la creatividad, la tecnología y la innovación son la base para construir el
+                    entretenimiento del futuro.
+                </p>
+            </section>
 
-         <div class="servicio">
-            <h3>Desarrollo de videojuegos.</h3>
-            <p>Creamos videojuegos innovadores con mecánicas atractivas, diseños originales y una experiencia de juego de calidad, combinando creatividad y tecnología para ofrecer entretenimiento único.
-            </p>
-         </div>
+            <!--Servicios-->
+            <section class="servicios animado" id="servicios">
+                <h2>Nuestros servicios</h2>
 
-            <div class="servicio">
-            <h3>Publicacion y gestión de videojuegos.</h3>
-            <p>Publicamos, administramos y mantenemos nuestros videojuegos, asegurando actualizaciones constantes, un rendimiento óptimo y una experiencia estable para todos los jugadores.
-            </p>
-        </div>
+                <div class="tarjetas-servicios">
+                    <div class="servicio">
+                        <h3>Desarrollo de videojuegos.</h3>
+                        <p>Creamos videojuegos innovadores con mecánicas atractivas, diseños originales y una
+                            experiencia de juego de calidad, combinando creatividad y tecnología para ofrecer
+                            entretenimiento único.
+                        </p>
+                    </div>
 
-            <div class="servicio">
-            <h3>Noticias y novedades sobre nuestros proyectos.</h3>
-            <p>Mantente al día con las últimas actualizaciones, anuncios, eventos y avances de nuestros videojuegos, además de conocer las próximas funciones y proyectos de Eclipse Labs.
-            </p>
-         </div>
+                    <div class="servicio">
+                        <h3>Publicacion y gestión de videojuegos.</h3>
+                        <p>Publicamos, administramos y mantenemos nuestros videojuegos, asegurando actualizaciones
+                            constantes, un rendimiento óptimo y una experiencia estable para todos los jugadores.
+                        </p>
+                    </div>
 
-        </section>
-        <section class="catalogo" id="catalogo">
-            <h2>Catalogo</h2>
-            <p></p>
-        </section>
+                    <div class="servicio">
+                        <h3>Noticias y novedades sobre nuestros proyectos.</h3>
+                        <p>Mantente al día con las últimas actualizaciones, anuncios, eventos y avances de nuestros
+                            videojuegos, además de conocer las próximas funciones y proyectos de Eclipse Labs.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!--Reseñas-->
+            <section class="resenas">
+                <h2>Lo que dicen los jugadores</h2>
+                <div class="tarjetas-resenas">
+
+                    <div class="resena animado">
+                        <p class="texto-resena">Arcadia me transportó directo a los 90s, pero con mecánicas modernas
+                            increíbles.</p>
+                        <p class="autor-resena">— Carlos M.</p>
+                    </div>
+
+                    <div class="resena animado">
+                        <p class="texto-resena">El mejor estudio indie que he seguido, cada lanzamiento supera al
+                            anterior.</p>
+                        <p class="autor-resena">— Valentina R.</p>
+                    </div>
+
+                    <div class="resena animado">
+                        <p class="texto-resena">Soporte increíble y actualizaciones constantes. 100% recomendado.</p>
+                        <p class="autor-resena">— Andrés G.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!--Catalogo-->
+            <section class="catalogo animado" id="catalogo">
+                <h2>Catálogo</h2>
+                <div class="tarjetas-catalogo">
+
+                    <div class="tarjeta-juego">
+                        <a href="#" id="logo">
+                            <img src="img/arkadia.png" alt="Logo arcadia">
+                            <p class="nombre-juego">Arcadia</p>
+                        </a>
+                    </div>
+
+                    <div class="tarjeta-juego">
+                        <a href="#">
+                            <img src="img/arkadia.png" alt="Logo juego 2">
+                            <p class="nombre-juego">Nombre del juego 2</p>
+                        </a>
+                    </div>
+
+                    <div class="tarjeta-juego">
+                        <a href="#">
+                            <img src="img/arkadia.png" alt="Logo juego 3">
+                            <p class="nombre-juego">Nombre del juego 3</p>
+                        </a>
+                    </div>
+
+                </div>
+            </section>
         </div>
     </main>
     <footer class="pie-de-pagina" id="footer">
-       <div>
-        <h2>Eclipse Labs</h2>
-        <p>Innovación que se juega</p>
-        <h2>Contacto </h2>
-            <a href="eclipselabs@gmail.com">
-            </a>
-                <a href="eclipselabs.com">
-            </a>
-       </div>
+        <div>
+            <h2>Eclipse Labs</h2>
+            <p>Innovación que se juega</p>
+            <h2>Contacto</h2>
+            <a href="mailto:eclipselabs@gmail.com">eclipselabs@gmail.com</a>
+            <a href="https://eclipselabs.com">eclipselabs.com</a>
+        </div>
     </footer>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
