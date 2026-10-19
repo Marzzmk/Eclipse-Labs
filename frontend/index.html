@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,10 +11,11 @@
 
 <body>
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Sobre nosotros</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#catalogo">Catálogo</a>
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#nosotros">Sobre nosotros</a>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="contacto.html">Contacto</a>
     </nav>
     <div class="portada" id="inicio">
         <header class="encabezado">
@@ -22,7 +23,7 @@
         </header>
     </div>
     <main class="contenido-principal">
-        <!--Mensaje principal-->
+        <!--hero-->
         <section class="hero">
             <h2>Innovación que se juega</h2>
             <p>Estudio de desarrollo de videojuegos para todo tipo de jugadores.</p>
@@ -31,16 +32,12 @@
         <!--Estadisticas-->
         <section class="estadisticas animado">
             <div class="estadistica">
-                <h3 class="numero" data-meta="12">0</h3>
-                <p>Videojuegos creados</p>
+                <h3 class="numero" data-meta="1">0</h3>
+                <p>Videojuego en desarrollo en Roblox</p>
             </div>
             <div class="estadistica">
-                <h3 class="numero" data-meta="500">0</h3>
-                <p>Jugadores Activos</p>
-            </div>
-            <div class="estadistica">
-                <h3 class="numero" data-meta="120">0</h3>
-                <p>Visitas al juego</p>
+                <h3 class="numero" data-meta="400">0</h3>
+                <p>Visitas en Roblox</p>
             </div>
         </section>
 
@@ -90,57 +87,37 @@
             </section>
 
             <!--Reseñas-->
-            <section class="resenas">
-                <h2>Lo que dicen los jugadores</h2>
-                <div class="tarjetas-resenas">
+            <section class="resenas animado" id="resenas">
+                <h2>Reseñas de la comunidad</h2>
+                <p class="intro-pagina">Cuéntanos qué piensas de Eclipse Labs.</p>
 
-                    <div class="resena animado">
-                        <p class="texto-resena">Arcadia me transportó directo a los 90s, pero con mecánicas modernas
-                            increíbles.</p>
-                        <p class="autor-resena">— Carlos M.</p>
-                    </div>
-
-                    <div class="resena animado">
-                        <p class="texto-resena">El mejor estudio indie que he seguido, cada lanzamiento supera al
-                            anterior.</p>
-                        <p class="autor-resena">— Valentina R.</p>
-                    </div>
-
-                    <div class="resena animado">
-                        <p class="texto-resena">Soporte increíble y actualizaciones constantes. 100% recomendado.</p>
-                        <p class="autor-resena">— Andrés G.</p>
-                    </div>
-
+                <div class="tarjetas-resenas" id="lista-resenas">
+                    <p class="sin-resenas" id="sin-resenas">Aún no hay reseñas. ¡Sé la primera persona en opinar!</p>
                 </div>
-            </section>
 
-            <!--Catalogo-->
-            <section class="catalogo animado" id="catalogo">
-                <h2>Catálogo</h2>
-                <div class="tarjetas-catalogo">
+                <form id="form-resena" class="formulario formulario-resena">
+                    <h3>Deja tu reseña</h3>
 
-                    <div class="tarjeta-juego">
-                        <a href="#" id="logo">
-                            <img src="img/arkadia.png" alt="Logo arcadia">
-                            <p class="nombre-juego">Arcadia</p>
-                        </a>
-                    </div>
+                    <label for="resena-nombre">Nombre</label>
+                    <input type="text" id="resena-nombre" name="nombre" placeholder="Tu nombre" maxlength="40" required>
 
-                    <div class="tarjeta-juego">
-                        <a href="#">
-                            <img src="img/arkadia.png" alt="Logo juego 2">
-                            <p class="nombre-juego">Nombre del juego 2</p>
-                        </a>
-                    </div>
+                    <label for="resena-puntuacion">Puntuación</label>
+                    <select id="resena-puntuacion" name="puntuacion" required>
+                        <option value="">Elige una puntuación</option>
+                        <option value="5">★★★★★ (5)</option>
+                        <option value="4">★★★★☆ (4)</option>
+                        <option value="3">★★★☆☆ (3)</option>
+                        <option value="2">★★☆☆☆ (2)</option>
+                        <option value="1">★☆☆☆☆ (1)</option>
+                    </select>
 
-                    <div class="tarjeta-juego">
-                        <a href="#">
-                            <img src="img/arkadia.png" alt="Logo juego 3">
-                            <p class="nombre-juego">Nombre del juego 3</p>
-                        </a>
-                    </div>
+                    <label for="resena-comentario">Comentario</label>
+                    <textarea id="resena-comentario" name="comentario" rows="4" maxlength="300"
+                        placeholder="¿Qué te pareció?" required></textarea>
 
-                </div>
+                    <button type="submit" class="boton">Publicar reseña</button>
+                    <p id="aviso-resena" class="aviso-form"></p>
+                </form>
             </section>
         </div>
     </main>
