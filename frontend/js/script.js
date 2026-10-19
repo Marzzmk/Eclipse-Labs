@@ -8,6 +8,25 @@ window.addEventListener('scroll', function() {
   }
 });
 
+//Menú hamburguesa (celulares y tablets)//
+const menu = document.querySelector('nav');
+const botonMenu = document.querySelector('.menu-toggle');
+
+if (botonMenu) {
+  botonMenu.addEventListener('click', () => {
+    const abierto = menu.classList.toggle('abierto');
+    botonMenu.setAttribute('aria-expanded', abierto);
+  });
+
+  // Al tocar un enlace, el menú se cierra
+  menu.querySelectorAll('a').forEach(enlace => {
+    enlace.addEventListener('click', () => {
+      menu.classList.remove('abierto');
+      botonMenu.setAttribute('aria-expanded', false);
+    });
+  });
+}
+
 //Animación de aparición al hacer scroll//
 const elementosAnimados = document.querySelectorAll('.animado');
 

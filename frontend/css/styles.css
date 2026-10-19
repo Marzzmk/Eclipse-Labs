@@ -516,3 +516,130 @@ nav a:visited { color: var(--neon-rosa2); }
   font-weight: 700;
   letter-spacing: 1px;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Botón del menú (solo se ve en pantallas pequeñas) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  color: var(--neon-rosa2);
+  border: 2px solid var(--neon-rosa2);
+  border-radius: 8px;
+  font-size: 24px;
+  padding: 4px 14px;
+  cursor: pointer;
+  text-shadow: 0 0 10px var(--neon-rosa3);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Laptops pequeñas: menú más compacto */
+@media (max-width: 1400px) {
+  nav {
+    font-size: 18px;
+  }
+  nav a {
+    margin: 0 15px;
+  }
+}
+
+/* Tablets y celulares: menú hamburguesa */
+@media (max-width: 1024px) {
+  nav {
+    background-color: var(--azul-base);
+    font-size: 16px;
+  }
+  .menu-toggle {
+    display: inline-block;
+  }
+  nav a {
+    display: none;
+    margin: 0;
+    padding: 14px 0;
+  }
+  nav.abierto a {
+    display: block;
+  }
+  .contenido {
+    padding: 0 30px;
+  }
+  .encabezado h1 {
+    font-size: 40px;
+  }
+  .hero h2 {
+    font-size: 24px;
+  }
+  .hero p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll; /* "fixed" falla en muchos celulares */
+  }
+  h2 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .encabezado h1 {
+    font-size: 26px;
+    margin-top: 80px;
+    padding: 0 15px;
+  }
+  .hero {
+    padding: 0 20px;
+  }
+  .hero h2 {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .hero p {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .contenido {
+    padding: 0 15px;
+  }
+  .pagina-interna {
+    padding: 90px 15px 0 15px;
+  }
+  .intro-pagina {
+    font-size: 17px;
+  }
+  .estadisticas {
+    gap: 30px;
+    padding: 30px 15px;
+  }
+  .numero {
+    font-size: 30px;
+  }
+  .sobre-nosotros,
+  .contacto,
+  .formulario-resena {
+    padding: 20px;
+  }
+  .catalogo {
+    padding: 30px 15px;
+  }
+  /* Las tarjetas se adaptan al ancho de la pantalla */
+  .servicio,
+  .juego-card,
+  .resena {
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+  .servicio h3 {
+    font-size: 14px;
+  }
+  .pie-de-pagina h2 {
+    font-size: 16px;
+  }
+}
