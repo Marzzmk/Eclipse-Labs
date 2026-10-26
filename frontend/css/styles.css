@@ -388,6 +388,14 @@ nav a:visited { color: var(--neon-rosa2); }
 .aviso-form.visible {
   opacity: 1;
 }
+.aviso-form.error {
+  color: var(--neon-rosa);
+  text-shadow: 0 0 10px var(--neon-rosa);
+}
+.boton:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
 
 /* Botón desactivado (juego aún no disponible) */
 .boton-desactivado {

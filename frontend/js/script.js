@@ -1,3 +1,6 @@
+// Dirección del backend. Cuando lo publiquemos, cambia esta URL por la del servidor real.
+const API_URL = 'http://localhost:3000';
+
 //Menú: cambia de color al hacer scroll//
 window.addEventListener('scroll', function() {
   const nav = document.querySelector('nav');
@@ -79,31 +82,39 @@ if (seccionEstadisticas) {
   observadorContadores.observe(seccionEstadisticas);
 }
 
+//Ayuda: mostrar un aviso (verde si todo salió bien, rosa si hubo un error)//
+function mostrarAviso(elemento, texto, exito) {
+  elemento.textContent = texto;
+  elemento.classList.toggle('error', !exito);
+  elemento.classList.add('visible');
+}
+
+// Envía datos al backend en formato JSON. Si el servidor responde con error, lo lanza.
+async function enviarAlServidor(ruta, datos) {
+  let respuesta;
+  try {
+    respuesta = await fetch(API_URL + ruta, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datos)
+    });
+  } catch (error) {
+    // fetch falla así cuando no hay conexión con el servidor
+    throw new Error('No pudimos conectar con el servidor. Intenta más tarde.');
+  }
+
+  const resultado = await respuesta.json().catch(() => ({}));
+  if (!respuesta.ok) {
+    throw new Error(resultado.error || 'Ocurrió un error. Intenta de nuevo.');
+  }
+  return resultado;
+}
+
 //Reseñas//
-// OJO: por ahora las reseñas se guardan en el navegador (localStorage), así que
-// solo las ve quien las escribe. Cuando tengamos backend y base de datos,
-// se guardarán en el servidor para que todos las vean.
 const formResena = document.getElementById('form-resena');
 const listaResenas = document.getElementById('lista-resenas');
 
-function obtenerResenas() {
-  try {
-    return JSON.parse(localStorage.getItem('resenas')) || [];
-  } catch (error) {
-    return [];
-  }
-}
-
-function guardarResenas(resenas) {
-  try {
-    localStorage.setItem('resenas', JSON.stringify(resenas));
-  } catch (error) {
-    console.log('No se pudo guardar la reseña');
-  }
-}
-
-function mostrarResenas() {
-  const resenas = obtenerResenas();
+function mostrarResenas(resenas) {
   const mensajeVacio = document.getElementById('sin-resenas');
 
   // Borra las tarjetas anteriores y las vuelve a dibujar
@@ -132,25 +143,40 @@ function mostrarResenas() {
   });
 }
 
-if (formResena && listaResenas) {
-  mostrarResenas();
+// Pide al servidor las reseñas aprobadas y las muestra
+async function cargarResenas() {
+  try {
+    const respuesta = await fetch(API_URL + '/api/resenas');
+    const resenas = await respuesta.json();
+    mostrarResenas(resenas);
+  } catch (error) {
+    console.log('No se pudieron cargar las reseñas');
+  }
+}
 
-  formResena.addEventListener('submit', (evento) => {
+if (formResena && listaResenas) {
+  cargarResenas();
+
+  formResena.addEventListener('submit', async (evento) => {
     evento.preventDefault();
 
-    const resenas = obtenerResenas();
-    resenas.push({
-      nombre: formResena.nombre.value.trim(),
-      puntuacion: parseInt(formResena.puntuacion.value),
-      comentario: formResena.comentario.value.trim()
-    });
-    guardarResenas(resenas);
-    mostrarResenas();
-
     const aviso = document.getElementById('aviso-resena');
-    aviso.textContent = '¡Gracias por tu reseña!';
-    aviso.classList.add('visible');
-    formResena.reset();
+    const boton = formResena.querySelector('button');
+    boton.disabled = true; // evita enviarla dos veces
+
+    try {
+      await enviarAlServidor('/api/resenas', {
+        nombre: formResena.nombre.value.trim(),
+        puntuacion: parseInt(formResena.puntuacion.value),
+        comentario: formResena.comentario.value.trim()
+      });
+      mostrarAviso(aviso, '¡Gracias! Tu reseña se publicará cuando la revisemos.', true);
+      formResena.reset();
+    } catch (error) {
+      mostrarAviso(aviso, error.message, false);
+    } finally {
+      boton.disabled = false;
+    }
   });
 }
 
@@ -158,22 +184,28 @@ if (formResena && listaResenas) {
 const formulario = document.getElementById('form-contacto');
 
 if (formulario) {
-  formulario.addEventListener('submit', (evento) => {
+  formulario.addEventListener('submit', async (evento) => {
     evento.preventDefault(); // evita que la página se recargue
 
-    const datos = {
-      nombre: formulario.nombre.value.trim(),
-      correo: formulario.correo.value.trim(),
-      asunto: formulario.asunto.value.trim(),
-      mensaje: formulario.mensaje.value.trim()
-    };
-
-    // TODO: cuando tengamos el backend, aquí se enviará "datos" con fetch()
-    console.log('Datos del formulario:', datos);
-
     const aviso = document.getElementById('aviso-form');
-    aviso.textContent = '¡Gracias, ' + datos.nombre + '! Recibimos tu mensaje.';
-    aviso.classList.add('visible');
-    formulario.reset();
+    const boton = formulario.querySelector('button');
+    boton.disabled = true;
+
+    const nombre = formulario.nombre.value.trim();
+
+    try {
+      await enviarAlServidor('/api/contacto', {
+        nombre: nombre,
+        correo: formulario.correo.value.trim(),
+        asunto: formulario.asunto.value.trim(),
+        mensaje: formulario.mensaje.value.trim()
+      });
+      mostrarAviso(aviso, '¡Gracias, ' + nombre + '! Recibimos tu mensaje.', true);
+      formulario.reset();
+    } catch (error) {
+      mostrarAviso(aviso, error.message, false);
+    } finally {
+      boton.disabled = false;
+    }
   });
 }
