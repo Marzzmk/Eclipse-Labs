@@ -1,137 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eclipse Labs</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <nav>
-        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-        <a href="index.html#inicio">Inicio</a>
-        <a href="index.html#nosotros">Sobre nosotros</a>
-        <a href="index.html#servicios">Servicios</a>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
-    <div class="portada" id="inicio">
-        <header class="encabezado">
-            <h1>Eclipse Labs</h1>
-        </header>
-    </div>
-    <main class="contenido-principal">
-        <!--hero-->
-        <section class="hero">
-            <h2>Innovación que se juega</h2>
-            <p>Estudio de desarrollo de videojuegos para todo tipo de jugadores.</p>
-        </section>
-
-        <!--Estadisticas-->
-        <section class="estadisticas animado">
-            <div class="estadistica">
-                <h3 class="numero" data-meta="1">0</h3>
-                <p>Videojuego en desarrollo en Roblox</p>
-            </div>
-            <div class="estadistica">
-                <h3 class="numero" data-meta="400">0</h3>
-                <p>Visitas en Roblox</p>
-            </div>
-        </section>
-
-        <!--Sobre nosotros-->
-        <div class="contenido">
-            <section class="sobre-nosotros animado" id="nosotros">
-                <h2>¿Quienes somos?</h2>
-                <p>
-                    En Eclipse Labs transformamos ideas en experiencias divertidas.
-                    Somos un estudio de desarrollo de videojuegos enfocado en crear títulos innovadores, divertidos y
-                    accesibles para todo tipo de jugadores.
-                    Nuestra plataforma reúne un catálogo de videojuegos, herramientas para la comunidad, un sistema de
-                    contacto y un asistente de inteligencia artificial diseñado para ayudar a los usuarios y mejorar su
-                    experiencia dentro de nuestros proyectos.
-                    Creemos que la creatividad, la tecnología y la innovación son la base para construir el
-                    entretenimiento del futuro.
-                </p>
-            </section>
-
-            <!--Servicios-->
-            <section class="servicios animado" id="servicios">
-                <h2>Nuestros servicios</h2>
-
-                <div class="tarjetas-servicios">
-                    <div class="servicio">
-                        <h3>Desarrollo de videojuegos.</h3>
-                        <p>Creamos videojuegos innovadores con mecánicas atractivas, diseños originales y una
-                            experiencia de juego de calidad, combinando creatividad y tecnología para ofrecer
-                            entretenimiento único.
-                        </p>
-                    </div>
-
-                    <div class="servicio">
-                        <h3>Publicacion y gestión de videojuegos.</h3>
-                        <p>Publicamos, administramos y mantenemos nuestros videojuegos, asegurando actualizaciones
-                            constantes, un rendimiento óptimo y una experiencia estable para todos los jugadores.
-                        </p>
-                    </div>
-
-                    <div class="servicio">
-                        <h3>Noticias y novedades sobre nuestros proyectos.</h3>
-                        <p>Mantente al día con las últimas actualizaciones, anuncios, eventos y avances de nuestros
-                            videojuegos, además de conocer las próximas funciones y proyectos de Eclipse Labs.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!--Reseñas-->
-            <section class="resenas animado" id="resenas">
-                <h2>Reseñas de la comunidad</h2>
-                <p class="intro-pagina">Cuéntanos qué piensas de Eclipse Labs.</p>
-
-                <div class="tarjetas-resenas" id="lista-resenas">
-                    <p class="sin-resenas" id="sin-resenas">Aún no hay reseñas. ¡Sé la primera persona en opinar!</p>
-                </div>
-
-                <form id="form-resena" class="formulario formulario-resena">
-                    <h3>Deja tu reseña</h3>
-
-                    <label for="resena-nombre">Nombre</label>
-                    <input type="text" id="resena-nombre" name="nombre" placeholder="Tu nombre" maxlength="40" required>
-
-                    <label for="resena-puntuacion">Puntuación</label>
-                    <select id="resena-puntuacion" name="puntuacion" required>
-                        <option value="">Elige una puntuación</option>
-                        <option value="5">★★★★★ (5)</option>
-                        <option value="4">★★★★☆ (4)</option>
-                        <option value="3">★★★☆☆ (3)</option>
-                        <option value="2">★★☆☆☆ (2)</option>
-                        <option value="1">★☆☆☆☆ (1)</option>
-                    </select>
-
-                    <label for="resena-comentario">Comentario</label>
-                    <textarea id="resena-comentario" name="comentario" rows="4" maxlength="300"
-                        placeholder="¿Qué te pareció?" required></textarea>
-
-                    <button type="submit" class="boton">Publicar reseña</button>
-                    <p id="aviso-resena" class="aviso-form"></p>
-                </form>
-            </section>
-        </div>
-    </main>
-    <footer class="pie-de-pagina" id="footer">
-        <div>
-            <h2>Eclipse Labs</h2>
-            <p>Innovación que se juega</p>
-            <h2>Contacto</h2>
-            <a href="mailto:eclipselabs@gmail.com">eclipselabs@gmail.com</a>
-            <a href="https://eclipselabs.com">eclipselabs.com</a>
-        </div>
-    </footer>
-    <script src="js/script.js"></script>
-</body>
-
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- React dibuja toda la página dentro de este div -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
