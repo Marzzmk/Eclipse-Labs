@@ -1,0 +1,116 @@
+/* Estilos del panel de administración y del enlace del footer.
+   Va en un archivo aparte para no tocar tu styles.css. */
+
+.pie-de-pagina .enlace-admin {
+  margin-top: 25px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+.pie-de-pagina .enlace-admin:hover {
+  opacity: 1;
+}
+
+.admin {
+  max-width: 900px;
+  margin: 50px auto 60px auto;
+  background-color: rgba(13, 27, 76, 0.5);
+  border: 2px solid var(--neon-verde);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 25px rgba(57, 255, 20, 0.25);
+}
+.admin h2 {
+  color: var(--neon-verde);
+  text-shadow: 0 0 15px var(--neon-verde);
+  font-size: 18px;
+  margin: 0;
+}
+.admin-barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.admin-pestanas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.admin-pestanas .boton.boton-pequeno {
+  opacity: 0.6;
+}
+.admin-pestanas .boton.boton-pequeno.activa {
+  opacity: 1;
+  background-color: rgba(255, 0, 174, 0.15);
+  box-shadow: 0 0 15px var(--neon-rosa2);
+}
+.admin-resumen {
+  color: var(--neon-cyan);
+  font-weight: 700;
+}
+
+.admin-item {
+  background-color: rgba(5, 1, 15, 0.6);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.admin-item.pendiente {
+  border-color: var(--neon-amarillo);
+}
+.admin-item p {
+  margin: 6px 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.admin-meta {
+  color: var(--neon-cyan);
+  font-size: 15px;
+}
+.admin-etiqueta {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 14px;
+  font-weight: 700;
+}
+.admin-etiqueta.pendiente {
+  color: var(--neon-amarillo);
+}
+.admin-etiqueta.aprobada {
+  color: var(--neon-verde);
+}
+.admin-acciones {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.boton.boton-pequeno {
+  padding: 8px 14px;
+  font-size: 10px;
+}
+.boton.boton-peligro {
+  color: var(--neon-naranja);
+  border-color: var(--neon-naranja);
+}
+.boton.boton-peligro:hover {
+  background-color: rgba(255, 159, 28, 0.15);
+  box-shadow: 0 0 20px var(--neon-naranja);
+}
+
+@media (max-width: 600px) {
+  .admin {
+    padding: 15px;
+  }
+  .admin h2 {
+    font-size: 14px;
+  }
+}

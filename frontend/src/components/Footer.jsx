@@ -1,4 +1,5 @@
-export default function Footer() {
+// "irA" es la función de App para cambiar de página
+export default function Footer({ irA }) {
   return (
     <footer className="pie-de-pagina" id="footer">
       <div>
@@ -7,6 +8,17 @@ export default function Footer() {
         <h2>Contacto</h2>
         <a href="mailto:eclipselabs@gmail.com">eclipselabs@gmail.com</a>
         <a href="https://eclipselabs.com">eclipselabs.com</a>
+
+        <a
+          href="#admin"
+          className="enlace-admin"
+          onClick={(evento) => {
+            evento.preventDefault();
+            irA("admin");
+          }}
+        >
+          Acceso administrador
+        </a>
       </div>
     </footer>
   );

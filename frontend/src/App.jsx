@@ -4,12 +4,13 @@ import Footer from "./components/Footer";
 import Inicio from "./pages/Inicio";
 import Catalogo from "./pages/Catalogo";
 import Contacto from "./pages/Contacto";
+import Admin from "./pages/Admin";
 
 export default function App() {
   // El estado "destino" recuerda qué página se ve y, si hace falta, a qué sección bajar
   const [destino, setDestino] = useState({ pagina: "inicio", seccion: null });
 
-  // Esta función se la pasamos a la Navbar. Crea un objeto nuevo en cada clic.
+  // Esta función se la pasamos a la Navbar y al Footer. Crea un objeto nuevo en cada clic.
   function irA(pagina, seccion = null) {
     setDestino({ pagina, seccion });
   }
@@ -31,8 +32,9 @@ export default function App() {
       {destino.pagina === "inicio" && <Inicio />}
       {destino.pagina === "catalogo" && <Catalogo />}
       {destino.pagina === "contacto" && <Contacto />}
+      {destino.pagina === "admin" && <Admin />}
 
-      <Footer />
+      <Footer irA={irA} />
     </>
   );
 }

@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 
 const Mensaje = require("./modelos/Mensaje");
 const Resena = require("./modelos/Resena");
+const rutasAdmin = require("./rutas/admin");
+const { responderError } = require("./utilidades/errores");
 
 const app = express();
 const PUERTO = process.env.PORT || 3000;
@@ -14,24 +16,10 @@ const PUERTO = process.env.PORT || 3000;
 // pueda hablar con este servidor. FRONTEND_URL limita quién puede hacerlo.
 app.use(cors({ origin: process.env.FRONTEND_URL || "*" }));
 // express.json() convierte el cuerpo de las peticiones (JSON) en un objeto: req.body
-app.use(express.json());
+// limit: rechaza cuerpos enormes (nadie necesita mandar más de 10 KB aquí)
+app.use(express.json({ limit: "10kb" }));
 
-// ---------- Ayuda ----------
-// Responde con un error claro. Si el error viene de las reglas del esquema
-// (campo vacío, correo inválido...) es culpa de los datos enviados: código 400.
-// Cualquier otro error es del servidor: código 500.
-function responderError(res, error) {
-  if (error.name === "ValidationError") {
-    const primero = Object.values(error.errors)[0];
-    const mensaje =
-      primero.name === "CastError" ? "Datos inválidos." : primero.message;
-    return res.status(400).json({ error: mensaje });
-  }
-  console.error(error);
-  res.status(500).json({ error: "Error del servidor. Intenta más tarde." });
-}
-
-// ---------- Rutas ----------
+// ---------- Rutas públicas ----------
 
 // Para comprobar que el servidor está vivo
 app.get("/api/estado", (req, res) => {
@@ -75,16 +63,23 @@ app.post("/api/resenas", async (req, res) => {
   }
 });
 
+// ---------- Rutas del administrador ----------
+// Todas empiezan con /api/admin. El login es público; el resto exige sesión.
+app.use("/api/admin", rutasAdmin);
+
 // ---------- Errores ----------
 // Ruta que no existe
 app.use((req, res) => {
   res.status(404).json({ error: "Ruta no encontrada." });
 });
 
-// JSON mal formado u otro error inesperado
+// JSON mal formado, cuerpo demasiado grande u otro error inesperado
 app.use((err, req, res, next) => {
-  console.error(err.message);
-  res.status(400).json({ error: "Datos inválidos." });
+  const esDelCliente = err.status >= 400 && err.status < 500;
+  if (!esDelCliente) console.error(err);
+  res
+    .status(esDelCliente ? err.status : 500)
+    .json({ error: esDelCliente ? "Datos inválidos." : "Error del servidor. Intenta más tarde." });
 });
 
 // ---------- Arrancar ----------

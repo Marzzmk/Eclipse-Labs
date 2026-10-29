@@ -17,10 +17,11 @@ a:visited {
 }
 
 body {
+  background-color: var(--azul-base);
   margin: 0px;
   background-image:
     linear-gradient(rgba(5,1,15,0.65), rgba(5,1,15,0.65)),
-    url('./assets/background-4.png');
+    url('/fondo.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
