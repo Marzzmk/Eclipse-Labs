@@ -10,6 +10,7 @@ const rutasChat = require("./rutas/chat");
 const { responderError } = require("./utilidades/errores");
 
 const app = express();
+app.set("trust proxy", 1);
 const PUERTO = process.env.PORT || 3000;
 
 // ---------- Configuración ----------
