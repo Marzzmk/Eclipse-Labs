@@ -5,6 +5,7 @@ import Inicio from "./pages/Inicio";
 import Catalogo from "./pages/Catalogo";
 import Contacto from "./pages/Contacto";
 import Admin from "./pages/Admin";
+import Chatbot from "./components/Chatbot";
 
 export default function App() {
   // El estado "destino" recuerda qué página se ve y, si hace falta, a qué sección bajar
@@ -33,6 +34,7 @@ export default function App() {
       {destino.pagina === "catalogo" && <Catalogo />}
       {destino.pagina === "contacto" && <Contacto />}
       {destino.pagina === "admin" && <Admin />}
+      {destino.pagina !== "admin" && <Chatbot />}
 
       <Footer irA={irA} />
     </>

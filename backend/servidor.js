@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const Mensaje = require("./modelos/Mensaje");
 const Resena = require("./modelos/Resena");
 const rutasAdmin = require("./rutas/admin");
+const rutasChat = require("./rutas/chat");
 const { responderError } = require("./utilidades/errores");
 
 const app = express();
@@ -66,6 +67,7 @@ app.post("/api/resenas", async (req, res) => {
 // ---------- Rutas del administrador ----------
 // Todas empiezan con /api/admin. El login es público; el resto exige sesión.
 app.use("/api/admin", rutasAdmin);
+app.use("/api/chat", rutasChat);
 
 // ---------- Errores ----------
 // Ruta que no existe
